@@ -9,6 +9,63 @@
 </head>
 
 <body>
+    <!-- Modal -->
+    <div class="modal fade" id="orcamentoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Solicitar orçamento</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="g-3 row">
+                        <div class="col-12">
+                            <label class="form-label">Nome</label>
+                            <input type="text" class="form-control" required />
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" required />
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Instagran</label>
+                            <div class="input-group">
+                                <span class="input-group-text" id="instagran">@</span>
+                                <input type="text" class="form-control" aria-label="Instagran"
+                                    aria-describedby="instagran" />
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Ramo do seu négocio</label>
+                            <input type="text" class="form-control" required />
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Plano de interesse</label>
+                            <select class="form-select" required>
+                                <option selected disabled>Escolha o plano...</option>
+                                <option>Plano Platinum</option>
+                                <option>Plano Gold</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Qual o porte da sua empresa?</label>
+                            <select class="form-select" required>
+                                <option selected disabled>Porte da empresa...</option>
+                                <option>Pequena empresa</option>
+                                <option>Média empresa</option>
+                                <option>Grande empresa</option>
+                                <option>Multinacional</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <header>
         <nav class="navbar navbar-expand-lg bg-dark py-4" data-bs-theme="dark">
             <div class="container-fluid">
@@ -24,30 +81,30 @@
                             <a class="nav-link active" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Etapas</a>
+                            <a class="nav-link" href="#steps">Etapas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Menu 3</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Menu 4</a>
+                            <a class="nav-link" href="#benefits">Benefícios</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
-                                Serviços
+                                Planos
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li><a class="dropdown-item" href="#plans">Planos Platinum</a></li>
+                                <li><a class="dropdown-item" href="#plans">Plano Gold</a></li>
                             </ul>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#projects">Projetos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#faq">FAQ</a>
+                        </li>
                         <li class="nav-item"></li>
-                        <a class="btn btn-primary" href="#">Contato</a>
+                        <a class="btn btn-primary" href="#" data-bs-toggle="modal"
+                            data-bs-target="#orcamentoModal">Solicitar orçamento</a>
                         </li>
                     </ul>
                 </div>
@@ -321,8 +378,7 @@
                                     data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="#collapseTwo">
                                     Como posso divulgar o meu négocio?</button>
                             </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse"
-                                data-bs-parent="faqAccordion">
+                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="faqAccordion">
                                 <div class="accordion-body">
                                     <strong>This is the first item's accordion body.</strong> It is shown by default,
                                     until the collapse plugin adds the appropriate classes that we use to style each
@@ -339,8 +395,7 @@
                                     data-bs-target="#collapseThree" aria-expanded="true" aria-controls="#collapseThree">
                                     Qual prazo final do suporte do Edson?</button>
                             </h2>
-                            <div id="collapseThree" class="accordion-collapse collapse"
-                                data-bs-parent="faqAccordion">
+                            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="faqAccordion">
                                 <div class="accordion-body">
                                     <strong>This is the first item's accordion body.</strong> It is shown by default,
                                     until the collapse plugin adds the appropriate classes that we use to style each
@@ -364,28 +419,34 @@
                 <h2 class="text-center fs-4 text-light">Veja soluções que já entregamos</h2>
             </div>
             <div class="row">
-                <div class="col-sm-12 col-lg-4 d-flex flex-column justify-content-center align-items-center text-center my-4">
-                    <img src="./assets/project-1.png" alt="projeto 1 Edson" class="d-block project-img"/>
+                <div
+                    class="col-sm-12 col-lg-4 d-flex flex-column justify-content-center align-items-center text-center my-4">
+                    <img src="./assets/project-1.png" alt="projeto 1 Edson" class="d-block project-img" />
                     <p class="text-light border-bottom mt-3 pb-1">Projeto 1 para a empresa X</p>
                 </div>
-                <div class="col-sm-12 col-lg-4 d-flex flex-column justify-content-center align-items-center text-center my-4">
-                    <img src="./assets/project-2.png" alt="projeto 2 Edson" class="d-block project-img"/>
+                <div
+                    class="col-sm-12 col-lg-4 d-flex flex-column justify-content-center align-items-center text-center my-4">
+                    <img src="./assets/project-2.png" alt="projeto 2 Edson" class="d-block project-img" />
                     <p class="text-light border-bottom mt-3 pb-1">Projeto 2 para a empresa X</p>
                 </div>
-                <div class="col-sm-12 col-lg-4 d-flex flex-column justify-content-center align-items-center text-center my-4">
-                    <img src="./assets/project-3.png" alt="projeto 3 Edson" class="d-block project-img"/>
+                <div
+                    class="col-sm-12 col-lg-4 d-flex flex-column justify-content-center align-items-center text-center my-4">
+                    <img src="./assets/project-3.png" alt="projeto 3 Edson" class="d-block project-img" />
                     <p class="text-light border-bottom mt-3 pb-1">Projeto 3 para a empresa X</p>
                 </div>
-                <div class="col-sm-12 col-lg-4 d-flex flex-column justify-content-center align-items-center text-center my-4">
-                    <img src="./assets/project-1.png" alt="projeto 4 Edson" class="d-block project-img"/>
+                <div
+                    class="col-sm-12 col-lg-4 d-flex flex-column justify-content-center align-items-center text-center my-4">
+                    <img src="./assets/project-1.png" alt="projeto 4 Edson" class="d-block project-img" />
                     <p class="text-light border-bottom mt-3 pb-1">Projeto 4 para a empresa X</p>
                 </div>
-                <div class="col-sm-12 col-lg-4 d-flex flex-column justify-content-center align-items-center text-center my-4">
-                    <img src="./assets/project-2.png" alt="projeto 5 Edson" class="d-block project-img"/>
+                <div
+                    class="col-sm-12 col-lg-4 d-flex flex-column justify-content-center align-items-center text-center my-4">
+                    <img src="./assets/project-2.png" alt="projeto 5 Edson" class="d-block project-img" />
                     <p class="text-light border-bottom mt-3 pb-1">Projeto 5 para a empresa X</p>
                 </div>
-                <div class="col-sm-12 col-lg-4 d-flex flex-column justify-content-center align-items-center text-center my-4">
-                    <img src="./assets/project-3.png" alt="projeto 6 Edson" class="d-block project-img"/>
+                <div
+                    class="col-sm-12 col-lg-4 d-flex flex-column justify-content-center align-items-center text-center my-4">
+                    <img src="./assets/project-3.png" alt="projeto 6 Edson" class="d-block project-img" />
                     <p class="text-light border-bottom mt-3 pb-1">Projeto 6 para a empresa X</p>
                 </div>
             </div>
@@ -403,22 +464,23 @@
                     <form class="g-3 row">
                         <div class="col-md-4">
                             <label class="form-label">Nome</label>
-                            <input type="text" class="form-control" required/>
+                            <input type="text" class="form-control" required />
                         </div>
                         <div class="col-md-4">
                             <label class="form-label">Email</label>
-                            <input type="email" class="form-control" required/>
+                            <input type="email" class="form-control" required />
                         </div>
                         <div class="col-md-4">
                             <label class="form-label">Instagran</label>
                             <div class="input-group">
                                 <span class="input-group-text" id="instagran">@</span>
-                                <input type="text" class="form-control" aria-label="Instagran" aria-describedby="instagran"/>
+                                <input type="text" class="form-control" aria-label="Instagran"
+                                    aria-describedby="instagran" />
                             </div>
                         </div>
                         <div class="col-md-6">
                             <label class="form-label">Ramo do seu négocio</label>
-                            <input type="text" class="form-control" required/>
+                            <input type="text" class="form-control" required />
                         </div>
                         <div class="col-md-3">
                             <label class="form-label">Plano de interesse</label>
@@ -451,6 +513,22 @@
             </div>
         </div>
     </section>
+
+    <footer class="bg-dark py-4 mt-4" data-bs-theme="dark">
+        <div class="container">
+            <nav>
+                <ul class="d-flex justify-content-center border-bottom pb-3 mb-3">
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
+                    <li class="nav-item"><a href="#steps" class="nav-link px-2 text-body-secondary">Etapas</a></li>
+                    <li class="nav-item"><a href="#benefits" class="nav-link px-2 text-body-secondary">Beneficios</a>
+                    </li>
+                    <li class="nav-item"><a href="#projects" class="nav-link px-2 text-body-secondary">Projetos</a></li>
+                    <li class="nav-item"><a href="#faq" class="nav-link px-2 text-body-secondary">FAQ</a></li>
+                </ul>
+            </nav>
+            <p class="text-center text-body-secondary">&copy; 2024 Edson, Inc</p>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
